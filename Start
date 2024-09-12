@@ -1,0 +1,20 @@
+#  Instalando o servidor Zabbix
+
+ssh sammy@zabbix_server_ip_address
+
+#O Zabbix está disponível no gerenciador de pacotes do Ubuntu, mas está desatualizado. Sendo assim, use o repositório oficial do Zabbix para instalar a versão estável mais recente. Baixe e instale o pacote de configuração do repositório:
+
+wget https://repo.zabbix.com/zabbix/5.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_5.0-1+focal_all.deb
+sudo dpkg -i zabbix-release_5.0-1+focal_all.deb
+
+#Atualize o índice de pacotes para que o novo repositório seja incluído:
+
+sudo apt update
+
+#Em seguida, instale o servidor Zabbix e o front-end Web com suporte ao banco de dados MySQL:
+
+sudo apt install zabbix-server-mysql zabbix-frontend-php
+
+#Além disso, instale o agente Zabbix, que lhe permitirá coletar dados sobre o status do próprio servidor Zabbix.
+
+sudo apt install zabbix-agent
